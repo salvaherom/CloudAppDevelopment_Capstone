@@ -14,19 +14,33 @@
 </head>
 
     <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Dealership</a>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Dealership</a>
+                </div>
+                <div class="nav navbar-nav navbar navbar-right">
+                       
+                </div>
+                <div class="nav navbar-nav navbar-right"> 
+                    {% if user.is_authenticated %}
+                    <form class="form-inline" action="{% url 'djangoapp:logout' %}">
+                        <a href="">{{ user.username }}</a>                    
+                        <input class="btn btn-outline-primary my-2 my-sm-0 ml-4" type="submit" value="Logout">
+                    </form>
+                    {% else %}
+                    <form class="form-inline" action="{% url 'djangoapp:login' %}" method="post">
+                        <input name="username" class="form-control mr-sm-2" type="text" placeholder="username" aria-label="username">
+                        <input name="password" class="form-control mr-sm-2" type="password" placeholder="password" aria-label="password">
+                        {% csrf_token %}
+                        <input class="btn btn-primary my-2 my-sm-0 ml-2" type="submit" value="Login">                    
+                        <a class="btn btn-outline-primary my-2 my-sm-0 ml-2" href="{% url 'djangoapp:signup' %}">Sign Up</a>
+                    </form>
+                    {% endif %}
+                </div>
             </div>
-        </div>
-        <div class="nav navbar-nav navbar-right">
-            <li>
-                <a class="btn btn-link" href="{% url 'djangoapp:about' %}">About Us</a>
-                <a class="btn btn-link" href="{% url 'djangoapp:contact' %}">Contact Us</a>
-            </li>
-        </div>
-    </nav>
+        </nav>
+
     <!--Add a dealer table here -->
     </body>
 
