@@ -14,20 +14,28 @@
 </head>
 
     <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Dealership</a>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Dealership</a>
+                </div>
+            </div>
+            <div class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="btn btn-link" href="{% url 'djangoapp:index' %}">Home</a>
+                    <a class="btn btn-link" href="{% url 'djangoapp:contact' %}">Contact Us</a>
+                </li>
+            </div>
+        </nav>    
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="h5">
+                        Welcome to Best Cars dealership, home to the best cars in North America. We sell domestic and imported cars at reasonable prices.
+                    </h1>
+                </div>
             </div>
         </div>
-        <div class="nav navbar-nav navbar-right">
-            <li>
-                <a class="btn btn-link" href="{% url 'djangoapp:about' %}">About Us</a>
-                <a class="btn btn-link" href="{% url 'djangoapp:contact' %}">Contact Us</a>
-            </li>
-        </div>
-    </nav>
-    <!--Add a dealer table here -->
     </body>
 
 </html>
